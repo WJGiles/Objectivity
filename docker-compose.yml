@@ -1,0 +1,40 @@
+version: "2"
+services:
+  labeller-frontend:
+    image: "labeller-frontend:0.0.10"
+    build:
+      context: .
+      dockerfile: Dockerfile-Frontend
+    ports:
+      - 3000:3000
+    environment:
+      - REACT_APP_IMAGE_SERVER_URI=http://localhost:8000
+      - REACT_APP_BACKEND_URI=http://localhost:3030
+      # The following prefix should match the volume mapping
+      # in the backend container
+      - REACT_APP_HOST_DATA_PREFIX=/host_data
+      - REACT_APP_SVG_WIDTH=1280
+      - REACT_APP_SVG_HEIGHT=720
+  labeller-backend:
+    image: "labeller-backend:0.0.4"
+    build:
+      context: .
+      dockerfile: Dockerfile-Backend
+    ports:
+      - 3030:3030
+    environment:
+      - MONGODB_URI=mongodb://mongodb/basic-mern
+      - REQUEST_SIZE_LIMIT="250mb"
+    links:
+      - mongodb
+    depends_on:
+      - mongodb
+    volumes:
+      - /:/host_data
+  mongodb:
+    image: mongo:3.4.0
+    container_name: "mongodb"
+    volumes:
+      - ./db:/data/db
+    ports:
+      - 27018:27017

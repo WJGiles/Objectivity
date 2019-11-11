@@ -1,0 +1,65 @@
+.box-annotator {
+  display: flex;
+  flex-direction: row;
+}
+
+.rowContainer {
+  display: flex;
+  flex-direction: row;
+}
+.rowItem {
+  margin: auto;
+  align-content: flex-start;
+  width: 700px;
+}
+
+.box-info {
+  margin-left: 20px;
+}
+
+.card {
+  margin-top: 20px;
+  background-color: "#00ff00";
+}
+
+.buttonHolder {
+  margin-top: 5px;
+  width: 200px;
+}
+
+.class-listing {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.class1 {
+  fill: blue;
+  stroke: blue;
+  stroke-width: 5;
+  fill-opacity: 0.1;
+  stroke-opacity: 0.9;
+}
+
+.class2 {
+  fill: blue;
+  stroke: pink;
+  stroke-width: 5;
+  fill-opacity: 0.1;
+  stroke-opacity: 0.9;
+}
+
+.class3 {
+  fill: blue;
+  stroke: red;
+  stroke-width: 5;
+  fill-opacity: 0.1;
+  stroke-opacity: 0.9;
+}
+
+.class4 {
+  fill: blue;
+  stroke: orange;
+  stroke-width: 5;
+  fill-opacity: 0.1;
+  stroke-opacity: 0.9;
+}

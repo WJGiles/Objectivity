@@ -1,0 +1,8 @@
+FROM node:8
+
+COPY ./labeller-backend /labeller-backend
+WORKDIR /labeller-backend
+EXPOSE 3030
+RUN npm install --loglevel=error
+
+ENTRYPOINT ["npm", "start"]
